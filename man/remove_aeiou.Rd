@@ -2,7 +2,7 @@
 % Please edit documentation in R/madlibs.R
 \name{remove_aeiou}
 \alias{remove_aeiou}
-\title{Title removeaeiou}
+\title{remove aeiou}
 \usage{
 remove_aeiou(x)
 }
@@ -13,7 +13,7 @@ remove_aeiou(x)
 a string object
 }
 \description{
-Title removeaeiou
+remove aeiou
 }
 \examples{
 remove_aeiou("Hello, World!")
