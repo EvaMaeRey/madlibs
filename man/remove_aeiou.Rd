@@ -10,7 +10,7 @@ remove_aeiou(x)
 \item{x}{a string input}
 }
 \value{
-string
+a string object
 }
 \description{
 Title removeaeiou
