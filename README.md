@@ -37,3 +37,15 @@ l \_ z \_ d much more easily than when it is in its raw, table form. The
 package ggplot2 is a package implementing the gr \_ mm \_ r of gr \_ ph
 \_ cs; the underlying philosophy is also used in Tableau and D3 (a java
 script library).*
+
+``` r
+set.seed(1234)
+drop_words(x = "The woods are lovely dark and deep", frac = .3)
+```
+
+-----
+
+``` r
+create_wandered_lonely() %>% 
+  drop_words(frac = .1)
+```

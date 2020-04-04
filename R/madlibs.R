@@ -1,3 +1,6 @@
+
+
+
 #' remove aeiou
 #'
 #' @param x a string input
