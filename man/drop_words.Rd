@@ -15,5 +15,6 @@ drop_words(x, frac = 0.2)
 Drop words to quiz knowledge of a text
 }
 \examples{
-drop_words(x = "The woods are lovely dark and deep, but I have promises to keep and miles to go before I sleep.", frac = .2)
+drop_words(x = "The woods are lovely dark and deep,
+but I have promises to keep and miles to go before I sleep.", frac = .2)
 }
