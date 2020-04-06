@@ -43,7 +43,11 @@ And dances with the daffodils."
 #'
 #' @examples
 #' remove_aeiou("Hello, World!")
-remove_aeiou <- function(x){ stringr::str_replace_all(x, "[aeiou]", " \\_ ") }
+remove_aeiou <- function(x){
+
+  stringr::str_replace_all(x, "[aeiou]", " \\_ ")
+
+  }
 
 
 string_as_table <- function(code){
@@ -70,14 +74,15 @@ string_as_table <- function(code){
 #' but I have promises to keep and miles to go before I sleep.", frac = .2)
 drop_words <- function(x, frac = .2) {
 
-  create_wandered_lonely() %>%
+  x %>%
     string_as_table() %>%
     dplyr::mutate(token = stringr::str_split(string, " |\\n")) %>%
     tidyr::unnest() %>%
-    dplyr::mutate(replace = sample(x = c("", "______"), size = dplyr::n(),
+    dplyr::mutate(replace = sample(x = c(F, T), size = dplyr::n(),
                                    replace = T, prob = c(1 - frac, frac))) %>%
-  dplyr::mutate(return = dplyr::case_when(replace == "______" ~ replace,
-                                          replace == "" ~ token)) %>%
+  dplyr::mutate(return = dplyr::case_when(replace ~
+                                            stringr::str_replace_all(token, "[[A-Za-z]]", "_"),
+                                          !replace ~ token)) %>%
     dplyr::group_by(line) %>%
     dplyr::mutate(return = paste(return, collapse = " ")) %>%
     dplyr::distinct(line, return) %>%
@@ -86,8 +91,5 @@ drop_words <- function(x, frac = .2) {
     cat()
 
 }
-
-
-
 
 
