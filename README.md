@@ -20,60 +20,66 @@ You can install the development version of madlibs from github.com with:
 devtools::install_github("EvaMaeRey/madlibs")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Drop vowels
 
 ``` r
 library(magrittr)
 Warning: package 'magrittr' was built under R version 3.6.2
 library(madlibs)
-# drop_vowels(x = "Hello, World!")
+drop_vowels(x = "Hello, World!")
 ```
+
+\[1\] “H \_ ll \_ , W \_ rld!”
 
 You will probably want to use the function
 [inline](https://rmarkdown.rstudio.com/lesson-4.html), in the middle of
 a paragraph so you get a result like this to gently test some knowledge:
 
-<!-- *People can makes sense of r drop_vowels("relationships")` in data when it is v \_ s \_ \_ l \_ z \_ d much more easily than when it is in its raw, table form. The package ggplot2 is a package implementing the gr \_ mm \_ r of gr \_ ph \_ cs; the underlying philosophy is also used in Tableau and D3 (a java script library).* -->
+*People can makes sense of r drop\_vowels(“relationships”)\` in data
+when it is v \_ s \_ \_ l \_ z \_ d much more easily than when it is in
+its raw, table form. The package ggplot2 is a package implementing the
+gr \_ mm \_ r of gr \_ ph \_ cs; the underlying philosophy is also used
+in Tableau and D3 (a java script library).*
+
+# Drop words
 
 ``` r
-set.seed(1234)
-drop_words(x = "The woods are lovely, dark and deep", frac = .3)
+drop_words(x = "The woods are lovely, dark and deep", frac = .5)
 ```
 
-\[1\] “The woods are lovely, \_\_\_\_ and deep”
+\[1\] “\_\_\_ woods are lovely, dark \_\_\_ \_\_\_\_”
 
 ------------------------------------------------------------------------
 
 ``` r
 madlibs:::create_wandered_lonely() %>% 
-  drop_words(frac = .1)
- [1] "I wandered lonely as a cloud\n"             
- [2] "____ floats on high o'er vales and hills,\n"
- [3] "When all at once I saw _ crowd,\n"          
- [4] "A host, of golden daffodils;\n"             
- [5] "Beside the lake, beneath ___ trees,\n"      
- [6] "Fluttering and dancing in the breeze.\n"    
- [7] "\n"                                         
- [8] "Continuous as the stars that shine\n"       
- [9] "And twinkle on the milky way,\n"            
-[10] "They stretched in never-ending line\n"      
-[11] "Along the margin of a bay\n"                
-[12] "Ten thousand saw I at a glance,\n"          
-[13] "Tossing their heads __ sprightly dance.\n"  
-[14] "\n"                                         
-[15] "The waves beside them danced; but they\n"   
-[16] "___-___ the sparkling waves in glee\n"      
-[17] "A poet could not but be gay,\n"             
-[18] "In such a jocund company\n"                 
-[19] "I gazed-and gazed-but ______ thought\n"     
-[20] "What ______ ___ show to me had _______\n"   
-[21] "\n"                                         
-[22] "___ oft, when on my couch I ___\n"          
-[23] "In vacant or __ pensive ____,\n"            
-[24] "They flash upon that ______ eye\n"          
-[25] "Which is the bliss of ________;\n"          
-[26] "And then my heart with pleasure _____,\n"   
-[27] "And ______ with the daffodils.\n"           
+  drop_words(frac = .3)
 ```
+
+\[1\] “I \_\_\_\_\_\_\_\_ lonely as \_ \_\_\_\_\_”  
+\[2\] “That \_\_\_\_\_\_ on \_\_\_\_ o’er \_\_\_\_\_ and hills,” \[3\]
+“When all \_\_ once I saw a crowd,”  
+\[4\] “\_ host, of \_\_\_\_\_\_ daffodils;”  
+\[5\] “Beside the lake, \_\_\_\_\_\_\_ the \_\_\_\_\_,”  
+\[6\] “Fluttering and dancing in the \_\_\_\_\_\_.”  
+\[7\] “”  
+\[8\] “Continuous as the stars that shine”  
+\[9\] “And twinkle on the \_\_\_\_\_ way,”  
+\[10\] “They \_\_\_\_\_\_\_\_\_ in \_\_\_\_\_-\_\_\_\_\_\_ line”  
+\[11\] “\_\_\_\_\_ the \_\_\_\_\_\_ of a bay”  
+\[12\] “Ten thousand saw I at a glance,”  
+\[13\] “Tossing their \_\_\_\_\_ in \_\_\_\_\_\_\_\_\_ dance.”  
+\[14\] “”  
+\[15\] “The waves beside them danced; but they”  
+\[16\] “Out-did the sparkling waves in glee”  
+\[17\] “A poet could not \_\_\_ be gay,”  
+\[18\] “In such a jocund company”  
+\[19\] “I \_\_\_\_\_-\_\_\_ gazed-but little \_\_\_\_\_\_\_”  
+\[20\] “What wealth \_\_\_ show to me \_\_\_ brought”  
+\[21\] “”  
+\[22\] “For oft, \_\_\_\_ on my couch I ***"  
+\[23\] "In vacant or in pensive mood,"  
+\[24\] "***\_ \_\_\_\_\_ upon that inward eye”  
+\[25\] “Which is the bliss of \_\_\_\_\_\_\_\_;”  
+\[26\] “And \_\_\_\_ my heart \_\_\_\_ \_\_\_\_\_\_\_\_ \_\_\_\_\_,”  
+\[27\] “\_\_\_ dances with \_\_\_ daffodils.”
