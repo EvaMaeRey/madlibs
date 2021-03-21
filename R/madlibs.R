@@ -34,18 +34,22 @@ And dances with the daffodils."
 
 
 
-#' remove aeiou
+#' Remove vowels
+#' @description Takes character string input and replaces vowels with pattern; default is underscore.
 #'
 #' @param x a string input
+#' @param replacement a string input that will replace vowels aeiou
 #'
 #' @return a string object
 #' @export
 #'
 #' @examples
 #' remove_aeiou("Hello, World!")
-remove_aeiou <- function(x){
+#' remove_aeiou("Hello, World!", "-")
+remove_aeiou <- function(x, replacement = " \\_ "){
 
-  stringr::str_replace_all(x, "[aeiou]", " \\_ ")
+  stringr::str_replace_all(x, "[aeiou]", replacement) %>%
+    cat()
 
   }
 
@@ -61,7 +65,7 @@ string_as_table <- function(code){
 }
 
 
-#' Drop words to quiz knowledge of a text
+#' Drop fraction of words to quiz knowledge of a text
 #'
 #' @param x a string input usually a paragraph
 #' @param frac a fraction of words to replace with empty spaces
@@ -77,11 +81,12 @@ drop_words <- function(x, frac = .2) {
   x %>%
     string_as_table() %>%
     dplyr::mutate(token = stringr::str_split(string, " |\\n")) %>%
-    tidyr::unnest() %>%
+    tidyr::unnest(cols = c(token)) %>%
     dplyr::mutate(replace = sample(x = c(F, T), size = dplyr::n(),
                                    replace = T, prob = c(1 - frac, frac))) %>%
-  dplyr::mutate(return = dplyr::case_when(replace ~
-                                            stringr::str_replace_all(token, "[[A-Za-z]]", "_"),
+    dplyr::mutate(return =
+                    dplyr::case_when(replace ~
+                                       stringr::str_replace_all(token, "[[A-Za-z]]", "\\_"),
                                           !replace ~ token)) %>%
     dplyr::group_by(line) %>%
     dplyr::mutate(return = paste(return, collapse = " ")) %>%

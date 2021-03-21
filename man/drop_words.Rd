@@ -2,7 +2,7 @@
 % Please edit documentation in R/madlibs.R
 \name{drop_words}
 \alias{drop_words}
-\title{Drop words to quiz knowledge of a text}
+\title{Drop fraction of words to quiz knowledge of a text}
 \usage{
 drop_words(x, frac = 0.2)
 }
@@ -12,7 +12,7 @@ drop_words(x, frac = 0.2)
 \item{frac}{a fraction of words to replace with empty spaces}
 }
 \description{
-Drop words to quiz knowledge of a text
+Drop fraction of words to quiz knowledge of a text
 }
 \examples{
 drop_words(x = "The woods are lovely dark and deep,

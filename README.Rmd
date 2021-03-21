@@ -7,7 +7,7 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
+  comment = "",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
@@ -32,25 +32,26 @@ devtools::install_github("EvaMaeRey/madlibs")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r}
+```{r, results='asis'}
+library(magrittr)
 library(madlibs)
 madlibs::remove_aeiou(x = "Hello, World!")
 ```
 
 You will probably want to use the function [inline](https://rmarkdown.rstudio.com/lesson-4.html), in the middle of a paragraph so you get a result like this to gently test some knowledge:
 
-*People can makes sense of relationships in data when it is v \_ s \_ \_ l \_ z \_ d much more easily than when it is in its raw, table form. The package ggplot2 is a package implementing the gr \_ mm \_ r of gr \_ ph \_ cs; the underlying philosophy is also used in Tableau and D3 (a java script library).*
+*People can makes sense of `r remove_aeiou("relationships")` in data when it is v \_ s \_ \_ l \_ z \_ d much more easily than when it is in its raw, table form. The package ggplot2 is a package implementing the gr \_ mm \_ r of gr \_ ph \_ cs; the underlying philosophy is also used in Tableau and D3 (a java script library).*
 
 
-```{r, eval = T}
+```{r, eval = T, results='asis'}
 set.seed(1234)
 drop_words(x = "The woods are lovely, dark and deep", frac = .3)
 ```
 
 ---
 
-```{r, eval = F}
-create_wandered_lonely() %>% 
+```{r, eval = T, results='asis'}
+madlibs:::create_wandered_lonely() %>% 
   drop_words(frac = .1)
 ```
 

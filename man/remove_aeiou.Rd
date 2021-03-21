@@ -2,19 +2,22 @@
 % Please edit documentation in R/madlibs.R
 \name{remove_aeiou}
 \alias{remove_aeiou}
-\title{remove aeiou}
+\title{Remove vowels}
 \usage{
-remove_aeiou(x)
+remove_aeiou(x, replacement = " \\\\_ ")
 }
 \arguments{
 \item{x}{a string input}
+
+\item{replacement}{a string input that will replace vowels aeiou}
 }
 \value{
 a string object
 }
 \description{
-remove aeiou
+Takes character string input and replaces vowels with pattern; default is underscore.
 }
 \examples{
 remove_aeiou("Hello, World!")
+remove_aeiou("Hello, World!", "-")
 }
