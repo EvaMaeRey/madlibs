@@ -44,9 +44,9 @@ And dances with the daffodils."
 #' @export
 #'
 #' @examples
-#' remove_aeiou("Hello, World!")
-#' remove_aeiou("Hello, World!", "-")
-remove_aeiou <- function(x, replacement = " \\_ "){
+#' drop_vowels("Hello, World!")
+#' drop_vowels("Hello, World!", "-")
+drop_vowels <- function(x, replacement = " \\_ "){
 
   stringr::str_replace_all(x, "[aeiou]", replacement)
 

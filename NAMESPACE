@@ -1,4 +1,4 @@
 export(drop_words)
-export(remove_aeiou)
+export(drop_vowels)
 importFrom(magrittr,"%>%")
 importFrom(rlang,.data)
