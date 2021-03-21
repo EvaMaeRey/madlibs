@@ -47,39 +47,39 @@ in Tableau and D3 (a java script library).*
 drop_words(x = "The woods are lovely, dark and deep", frac = .5)
 ```
 
-\[1\] “\_\_\_ woods are lovely, dark \_\_\_ \_\_\_\_”
+\[1\] “The \_\_\_\_\_ \_\_\_ \_\_\_\_\_\_, \_\_\_\_ and \_\_\_\_”
 
 ------------------------------------------------------------------------
 
 ``` r
 madlibs:::create_wandered_lonely() %>% 
-  drop_words(frac = .3)
+  drop_words(frac = .3) 
 ```
 
-\[1\] “I \_\_\_\_\_\_\_\_ lonely as \_ \_\_\_\_\_”  
-\[2\] “That \_\_\_\_\_\_ on \_\_\_\_ o’er \_\_\_\_\_ and hills,” \[3\]
-“When all \_\_ once I saw a crowd,”  
-\[4\] “\_ host, of \_\_\_\_\_\_ daffodils;”  
-\[5\] “Beside the lake, \_\_\_\_\_\_\_ the \_\_\_\_\_,”  
-\[6\] “Fluttering and dancing in the \_\_\_\_\_\_.”  
+\[1\] “I wandered lonely as a \_\_\_\_\_”  
+\[2\] “That floats \_\_ \_\_\_\_ o’er \_\_\_\_\_ and hills,” \[3\]
+“\_\_\_\_ all at once \_ saw a crowd,”  
+\[4\] “A host, of \_\_\_\_\_\_ daffodils;”  
+\[5\] “\_\_\_\_\_\_ \_\_\_ lake, beneath \_\_\_ trees,”  
+\[6\] “Fluttering \_\_\_ dancing in \_\_\_ breeze.”  
 \[7\] “”  
-\[8\] “Continuous as the stars that shine”  
-\[9\] “And twinkle on the \_\_\_\_\_ way,”  
-\[10\] “They \_\_\_\_\_\_\_\_\_ in \_\_\_\_\_-\_\_\_\_\_\_ line”  
-\[11\] “\_\_\_\_\_ the \_\_\_\_\_\_ of a bay”  
+\[8\] “\_\_\_\_\_\_\_\_\_\_ \_\_ the stars that \_\_\_\_\_”  
+\[9\] “And twinkle \_\_ \_\_\_ milky way,”  
+\[10\] “They stretched in never-ending line”  
+\[11\] “\_\_\_\_\_ the margin of a bay”  
 \[12\] “Ten thousand saw I at a glance,”  
-\[13\] “Tossing their \_\_\_\_\_ in \_\_\_\_\_\_\_\_\_ dance.”  
+\[13\] “Tossing \_\_\_\_\_ \_\_\_\_\_ in sprightly \_\_\_\_\_.”  
 \[14\] “”  
-\[15\] “The waves beside them danced; but they”  
-\[16\] “Out-did the sparkling waves in glee”  
-\[17\] “A poet could not \_\_\_ be gay,”  
-\[18\] “In such a jocund company”  
-\[19\] “I \_\_\_\_\_-\_\_\_ gazed-but little \_\_\_\_\_\_\_”  
-\[20\] “What wealth \_\_\_ show to me \_\_\_ brought”  
+\[15\] “\_\_\_ waves beside them \_\_\_\_\_\_; but they”  
+\[16\] “Out-did \_\_\_ \_\_\_\_\_\_\_\_\_ waves in glee”  
+\[17\] “A \_\_\_\_ \_\_\_\_\_ \_\_\_ but \_\_ gay,”  
+\[18\] “In such a jocund \_\_\_\_\_\_\_”  
+\[19\] “\_ gazed-and \_\_\_\_\_-\_\_\_ little thought”  
+\[20\] “What wealth \_\_\_ \_\_\_\_ to me \_\_\_ brought”  
 \[21\] “”  
-\[22\] “For oft, \_\_\_\_ on my couch I ***"  
-\[23\] "In vacant or in pensive mood,"  
-\[24\] "***\_ \_\_\_\_\_ upon that inward eye”  
-\[25\] “Which is the bliss of \_\_\_\_\_\_\_\_;”  
-\[26\] “And \_\_\_\_ my heart \_\_\_\_ \_\_\_\_\_\_\_\_ \_\_\_\_\_,”  
-\[27\] “\_\_\_ dances with \_\_\_ daffodils.”
+\[22\] “For ***, when ** my couch I lie"  
+\[23\] "In vacant or in pensive *\_**,"  
+\[24\] "**\_\_ flash upon \_\_\_\_ inward ***"  
+\[25\] "***\_\_ is the bliss \_\_ \_\_\_\_\_\_\_\_;”  
+\[26\] “\_\_\_ then \_\_ heart with pleasure fills,”  
+\[27\] “\_\_\_ dances with the daffodils.”

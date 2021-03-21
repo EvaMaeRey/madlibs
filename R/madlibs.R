@@ -92,7 +92,7 @@ drop_words <- function(x, frac = .2, replacement = "\\_") {
     dplyr::mutate(return = paste(.data$return, collapse = " ")) %>%
     dplyr::distinct(.data$line, .data$return) %>%
     dplyr::pull(.data$return) %>%
-    paste0(sep = "\n ")
+    paste0(sep = " \n ")
 
 }
 
