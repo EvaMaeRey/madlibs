@@ -2,17 +2,19 @@
 % Please edit documentation in R/madlibs.R
 \name{drop_words}
 \alias{drop_words}
-\title{Drop fraction of words to quiz knowledge of a text}
+\title{Drop fraction of words of a text}
 \usage{
-drop_words(x, frac = 0.2)
+drop_words(x, frac = 0.2, replacement = "\\\\_")
 }
 \arguments{
 \item{x}{a string input usually a paragraph}
 
 \item{frac}{a fraction of words to replace with empty spaces}
+
+\item{replacement}{a string which will be used instead of the charaters to be replaced}
 }
 \description{
-Drop fraction of words to quiz knowledge of a text
+Drop fraction of words of a text
 }
 \examples{
 drop_words(x = "The woods are lovely dark and deep,

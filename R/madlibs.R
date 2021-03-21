@@ -11,16 +11,16 @@ Fluttering and dancing in the breeze.
 Continuous as the stars that shine
 And twinkle on the milky way,
 They stretched in never-ending line
-Along the margin of a bay:
+Along the margin of a bay
 Ten thousand saw I at a glance,
 Tossing their heads in sprightly dance.
 
 The waves beside them danced; but they
-Out-did the sparkling waves in glee:
+Out-did the sparkling waves in glee
 A poet could not but be gay,
-In such a jocund company:
-I gazed—and gazed—but little thought
-What wealth the show to me had brought:
+In such a jocund company
+I gazed-and gazed-but little thought
+What wealth the show to me had brought
 
 For oft, when on my couch I lie
 In vacant or in pensive mood,
@@ -48,27 +48,27 @@ And dances with the daffodils."
 #' remove_aeiou("Hello, World!", "-")
 remove_aeiou <- function(x, replacement = " \\_ "){
 
-  stringr::str_replace_all(x, "[aeiou]", replacement) %>%
-    cat()
+  stringr::str_replace_all(x, "[aeiou]", replacement)
 
   }
 
 
 string_as_table <- function(code){
 
-  code %>%
-    stringr::str_split(pattern = "\n") %>%
-    .[[1]] %>%
-    tibble::tibble(string = .) %>%
+  string <- code %>%
+    stringr::str_split(pattern = "\n")
+
+    tibble::tibble(string = string[[1]]) %>%
     dplyr::mutate(line = 1:dplyr::n())
 
 }
 
 
-#' Drop fraction of words to quiz knowledge of a text
+#' Drop fraction of words of a text
 #'
 #' @param x a string input usually a paragraph
 #' @param frac a fraction of words to replace with empty spaces
+#' @param replacement a string which will be used instead of the charaters to be replaced
 #'
 #' @return
 #' @export
@@ -76,24 +76,23 @@ string_as_table <- function(code){
 #' @examples
 #' drop_words(x = "The woods are lovely dark and deep,
 #' but I have promises to keep and miles to go before I sleep.", frac = .2)
-drop_words <- function(x, frac = .2) {
+drop_words <- function(x, frac = .2, replacement = "\\_") {
 
   x %>%
     string_as_table() %>%
-    dplyr::mutate(token = stringr::str_split(string, " |\\n")) %>%
-    tidyr::unnest(cols = c(token)) %>%
+    dplyr::mutate(token = stringr::str_split(.data$string, " |\\n")) %>%
+    tidyr::unnest(cols = c(.data$token)) %>%
     dplyr::mutate(replace = sample(x = c(F, T), size = dplyr::n(),
                                    replace = T, prob = c(1 - frac, frac))) %>%
     dplyr::mutate(return =
                     dplyr::case_when(replace ~
-                                       stringr::str_replace_all(token, "[[A-Za-z]]", "\\_"),
-                                          !replace ~ token)) %>%
-    dplyr::group_by(line) %>%
-    dplyr::mutate(return = paste(return, collapse = " ")) %>%
-    dplyr::distinct(line, return) %>%
-    dplyr::pull(return) %>%
-    paste0(sep = "\n") %>%
-    cat()
+                                       stringr::str_replace_all(.data$token, "[[A-Za-z]]", replacement),
+                                          !.data$replace ~ .data$token)) %>%
+    dplyr::group_by(.data$line) %>%
+    dplyr::mutate(return = paste(.data$return, collapse = " ")) %>%
+    dplyr::distinct(.data$line, .data$return) %>%
+    dplyr::pull(.data$return) %>%
+    paste0(sep = "\n")
 
 }
 

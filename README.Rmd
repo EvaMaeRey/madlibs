@@ -50,7 +50,7 @@ drop_words(x = "The woods are lovely, dark and deep", frac = .3)
 
 ---
 
-```{r, eval = T, results='asis'}
+```{r, eval = T}
 madlibs:::create_wandered_lonely() %>% 
   drop_words(frac = .1)
 ```
