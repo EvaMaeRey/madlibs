@@ -1,0 +1,141 @@
+---
+title: "{madlibs}"
+subtitle: "how it works"
+author: "Gina Reynolds, April 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 30:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(flipbookr)
+library(tidyverse)
+```
+
+---
+
+
+```{r}
+madlibs:::create_wandered_lonely() %>% 
+stringr::str_replace_all("[aeiou]", 
+                         " \\_ ") %>%
+    cat()
+```
+
+
+---
+
+`r chunk_reveal("wondered", break_type = 1)`
+
+```{r wondered,include=F}
+set.seed(121435)
+
+frac = .4
+replacement = "_"
+madlibs:::create_wandered_lonely() %>% 
+    stringr::str_split(pattern = "\n") ->
+string
+
+
+tibble::tibble(string = string[[1]]) %>%
+    dplyr::mutate(line = 1:dplyr::n()) %>% 
+    dplyr::mutate(token = 
+                    stringr::str_split(.data$string, 
+                                       " |\\n")) %>%
+    tidyr::unnest(cols = c(.data$token)) %>%
+    dplyr::mutate(replace = 
+                    sample(x = c(F, T), 
+                           size = dplyr::n(),
+                           replace = T, 
+                           prob = c(1 - frac, frac))) %>%
+    dplyr::mutate(word = tolower(token)) %>% 
+    left_join(tidytext::stop_words %>% 
+                distinct(word) %>% 
+                mutate(stop_word = 1)) %>% 
+    dplyr::mutate(replace = ifelse(!is.na(stop_word), F, replace)) %>% 
+    dplyr::mutate(return =
+                    dplyr::case_when(replace ~
+                                     stringr::str_replace_all(.data$token, 
+                                                              "[[A-Za-z]]", 
+                                                              replacement),
+                                          !.data$replace ~ .data$token)) %>%
+    dplyr::group_by(.data$line) %>%
+    dplyr::mutate(return = paste(.data$return, collapse = " ")) %>%
+    dplyr::distinct(.data$line, .data$return) %>%
+    dplyr::pull(.data$return) %>%
+    paste0(sep = " \n  ") %>%
+    cat()  
+```
+
+---
+
+`r chunk_reveal("just_vowels")`
+
+```{r just_vowels}
+set.seed(121435)
+
+frac = 1
+replacement = "_"
+madlibs:::create_wandered_lonely() %>% 
+    stringr::str_split(pattern = "\n") ->
+string
+
+
+tibble::tibble(string = string[[1]]) %>%
+    dplyr::mutate(line = 1:dplyr::n()) %>% 
+    dplyr::mutate(token = 
+                    stringr::str_split(.data$string, 
+                                       " |\\n")) %>%
+    tidyr::unnest(cols = c(.data$token)) %>%
+    dplyr::mutate(replace = 
+                    sample(x = c(F, T), 
+                           size = dplyr::n(),
+                           replace = T, 
+                           prob = c(1 - frac, frac))) %>%
+    dplyr::mutate(word = tolower(token)) %>% 
+    left_join(tidytext::stop_words %>% 
+                distinct(word) %>% 
+                mutate(stop_word = 1)) %>% 
+    dplyr::mutate(replace = ifelse(!is.na(stop_word), F, replace)) %>% 
+    dplyr::mutate(return =
+                    dplyr::case_when(replace ~
+                                     stringr::str_replace_all(.data$token, 
+                                                              "[[aeiou]]", 
+                                                              replacement),
+                                          !.data$replace ~ .data$token)) %>%
+    dplyr::group_by(.data$line) %>%
+    dplyr::mutate(return = paste(.data$return, collapse = " ")) %>%
+    dplyr::distinct(.data$line, .data$return) %>%
+    dplyr::pull(.data$return) %>%
+    paste0(sep = " \n  ") %>%
+    cat()  
+```    
+
+
+---
+
+
+`r chunk_reveal("slash")`
+
+```{r slash, include = F}
+"_" %>% cat()
+"_" %>% cat()
+"_hi" %>% cat()
+"_hi_" %>% cat()
+```
+
+---
+
+
+```{r}
+"We started the term with a chance model"
+```
+

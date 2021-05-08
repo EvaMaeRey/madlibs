@@ -1,0 +1,25 @@
+---
+title: "Prose"
+subtitle: "Twain"
+author: "Gina Reynolds, April 2020"
+output: html_document
+---
+
+```{r}
+knitr::opts_chunk$set(comment = "")
+```
+
+
+```{r, results='asis'}
+library(madlibs)
+library(magrittr)
+
+madlibs:::twain() %>% 
+  drop_words(frac = .5)
+```
+
+
+```{r, results='asis'}
+"\\_it\\_. it. Harris" %>% cat()
+```
+

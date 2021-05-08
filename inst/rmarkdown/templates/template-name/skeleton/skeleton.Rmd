@@ -1,0 +1,115 @@
+---
+title: "{madlibs}"
+subtitle: "'Lonely as a cloud'"
+author: "Gina Reynolds, April 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+class: right, top, inverse
+background-image: url(daffodills/annie-spratt-0B3wG1Q45zY-unsplash.jpg)
+background-size: cover
+
+# .Large['Lonely as a cloud' quizzer]
+
+
+
+### made with {flipbookr}, {madlibs}, and {xaringan}
+
+
+#### github.com/EvaMaeRey/flipbookr
+
+
+
+```{r setup, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scracth can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = FALSE, fig.retina = 3)
+library(flipbookr)
+library(magrittr)
+library(madlibs)
+```
+
+---
+class: middle, center, inverse
+background-image: url(daffodills/chi-pham-wZtCjl0zsNk-unsplash.jpg)
+background-size: cover
+
+# Gentle
+
+---
+
+`r chunk_reveal("wordsworth", break_type = 7, display = "output")`
+
+```{r wordsworth, include = F}
+madlibs:::create_wandered_lonely() %>% 
+  madlibs::drop_words(frac = .1)
+```
+
+
+---
+class: middle, center, inverse
+background-image: url(daffodills/charles-tyler-NT-SZNVl8co-unsplash.jpg)
+background-size: cover
+
+# Hard
+
+---
+
+
+`r chunk_reveal("wordsworth3", break_type = 7, display = "output")`
+
+```{r wordsworth3, include = F}
+madlibs:::create_wandered_lonely() %>% 
+  madlibs::drop_words(frac = .25) 
+```
+
+
+---
+class: middle, center, inverse
+background-image: url(daffodills/ruxandra-mateiu-rrXk6BopdiI-unsplash.jpg)
+background-size: cover
+
+# Expert
+
+
+---
+
+`r chunk_reveal("wordsworth5", break_type = 7, display = "output")`
+
+```{r wordsworth5, include = F}
+madlibs:::create_wandered_lonely() %>% 
+  madlibs::drop_words(frac = .4) 
+```
+
+---
+
+The poem is by [William Wordsworth](https://en.wikipedia.org/wiki/William_Wordsworth).  The beautiful photographs are from contributors to unsplash.  These are the files ids:
+
+```{r, echo = F, results='asis'}
+list.files("daffodills") %>% 
+  stringr::str_remove("-unsplash.jpg") %>% 
+  paste(collapse = ", ") %>% 
+  cat()
+```
+
+---
+class: middle, center, inverse
+background-image: url(daffodills/peter-wimberg-tZ6tlAE1c4Y-unsplash.jpg)
+background-size: cover
+
+### The flipbooked portion of this presentation was created with the new {flipbookr} package and {madlibs}. More about flipbooks [here](https://evamaerey.github.io/flipbooks/about).
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 80%}
+```

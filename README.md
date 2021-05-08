@@ -29,7 +29,7 @@ library(madlibs)
 drop_vowels(x = "Hello, World!")
 ```
 
-\[1\] “H \_ ll \_ , W \_ rld!”
+H \_ ll \_ , W \_ rld!
 
 You will probably want to use the function
 [inline](https://rmarkdown.rstudio.com/lesson-4.html), in the middle of
@@ -47,39 +47,48 @@ in Tableau and D3 (a java script library).*
 drop_words(x = "The woods are lovely, dark and deep", frac = .5)
 ```
 
-\[1\] “The woods \_\_\_ \_\_\_\_\_\_, \_\_\_\_ \_\_\_ deep ”
+The \_\_\_\_\_ are lovely, \_\_\_\_ and \_\_\_\_
 
 ------------------------------------------------------------------------
 
 ``` r
 madlibs:::create_wandered_lonely() %>% 
-  drop_words(frac = .3) 
+  madlibs:::drop_words()
+I wandered lonely as a cloud 
+   That ______ on high _'__ _____ ___ hills, 
+   When all __ once I ___ a crowd, 
+   A host, of ______ daffodils; 
+   ______ the ____, beneath the trees, 
+   Fluttering and dancing in the breeze. 
+    
+   __________ as the _____ that shine 
+   And twinkle on the milky ___, 
+   They stretched in never-ending line 
+   _____ the margin of _ bay 
+   Ten thousand saw _ __ _ glance, 
+   _______ their heads __ sprightly dance. 
+    
+   The waves beside ____ danced; but ____ 
+   Out-did the sparkling waves in glee 
+   A poet could not but be gay, 
+   __ such a jocund company 
+   I _____-___ gazed-but little thought 
+   What wealth the show to me ___ _______ 
+    
+   For oft, when on my _____ _ ___ 
+   In vacant __ __ pensive mood, 
+   They flash upon that inward eye 
+   Which __ the bliss of solitude; 
+   And then my heart with pleasure _____, 
+   And dances ____ ___ daffodils. 
+  
 ```
 
-\[1\] “I wandered lonely as a cloud ”  
-\[2\] “\_\_\_\_ floats \_\_ \_\_\_\_ o’er vales and hills, ” \[3\]
-“\_\_\_\_ \_\_\_ at once I saw a crowd, ”  
-\[4\] “\_ host, of \_\_\_\_\_\_ \_\_\_\_\_\_\_\_\_; ”  
-\[5\] “Beside the \_\_\_\_, beneath \_\_\_ \_\_\_\_\_, ”  
-\[6\] “Fluttering and \_\_\_\_\_\_\_ in the breeze. ”  
-\[7\] " "  
-\[8\] “Continuous \_\_ the stars \_\_\_\_ \_\_\_\_\_ ”  
-\[9\] “\_\_\_ twinkle on the milky ***, "  
-\[10\] "They stretched ** never-ending *\_\_\_ ”  
-\[11\] “\_\_\_\_\_ the \_\_\_\_\_\_ of a bay ”  
-\[12\] “Ten \_\_\_\_\_\_\_\_ saw I at \_ glance, ”  
-\[13\] “\_\_\_\_\_\_\_ \_\_\_\_\_ heads \_\_ sprightly dance. ”  
-\[14\] " "  
-\[15\] “\_\_\_ waves beside them danced; but \_\_\_\_ ”  
-\[16\] “Out-did the \_\_\_\_\_\_\_\_\_ waves \_\_ glee ”  
-\[17\] “A \_\_\_\_ \_\_\_\_\_ not but be ***, "  
-\[18\] "In such * jocund company "  
-\[19\] "I gazed-and gazed-but **\_\_\_\_ thought ”  
-\[20\] “\_\_\_\_ wealth the show to me \_\_\_ \_\_\_\_\_\_\_ ”  
-\[21\] " "  
-\[22\] “For ***, ***\_ \_\_ \_\_ couch \_ lie ”  
-\[23\] “In vacant or \_\_ pensive mood, ”  
-\[24\] “They flash \_\_\_\_ that inward eye ”  
-\[25\] “\_\_\_\_\_ is the bliss of solitude; ”  
-\[26\] “And \_\_\_\_ my heart with \_\_\_\_\_\_\_\_ \_\_\_\_\_, ”  
-\[27\] “And dances with the daffodils. ”
+``` r
+madlibs:::twain() %>% 
+  drop_words() 
+I went often to look __ the collection of curiosities __ __________ Castle, ___ one day I surprised the keeper of it with __ ______. I spoke entirely in that language. He was greatly __________; and after I ___ talked a while __ said my German was ____ ____, possibly _ "unique;" ___ wanted to add it to his museum. 
+    
+   If __ had known what it had cost me to acquire my ___, he would also have _____ ____ __ would break any collector to buy it. Harris and I had been ____ at work __ our German during several weeks at that ____, and although we ___ ____ good progress, it had ____ accomplished under great difficulty ___ _________, for three __ our teachers had ____ in the ________. A person who has not _______ German can form no idea __ what a perplexing ________ it is. 
+  
+```
